@@ -9,7 +9,7 @@ const PlantPage = ({ id, plants }) => {
       <img src={plant.image} alt={plant.name} />
       <h2>{plant.name}</h2>
       <p>Price: ${plant.price}</p>
-      <p>{plant.soldOut ? 'This plant is sold out' : 'This plant is available'}</p>
+      <p>{plant.soldOut ? 'sold out' : 'in stock'}</p>
     </div>
   );
 };

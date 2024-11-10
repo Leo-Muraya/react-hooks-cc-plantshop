@@ -9,7 +9,7 @@ const PlantCard = ({ plant, onMarkSoldOut, onDelete }) => {
       <img src={image} alt={name} />
       <p>Price: ${price}</p>
       <button onClick={() => onMarkSoldOut(id)}>
-        {soldOut ? 'Mark as Available' : 'Mark as Sold Out'}
+        {soldOut ? 'In Stock' : 'Sold Out'}
       </button>
       <button onClick={() => onDelete(id)}>Delete</button>
     </div>
