@@ -1,18 +1,19 @@
-import React from "react";
+import React from 'react';
 
-function PlantCard() {
+const PlantCard = ({ plant, onMarkSoldOut, onDelete }) => {
+  const { id, name, image, price, soldOut } = plant;
+
   return (
-    <li className="card" data-testid="plant-item">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
-      ) : (
-        <button>Out of Stock</button>
-      )}
-    </li>
+    <div className="plant-card">
+      <h2>{name}</h2>
+      <img src={image} alt={name} />
+      <p>Price: ${price}</p>
+      <button onClick={() => onMarkSoldOut(id)}>
+        {soldOut ? 'Mark as Available' : 'Mark as Sold Out'}
+      </button>
+      <button onClick={() => onDelete(id)}>Delete</button>
+    </div>
   );
-}
+};
 
 export default PlantCard;

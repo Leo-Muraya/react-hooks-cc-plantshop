@@ -1,16 +1,17 @@
-import React from "react";
-import NewPlantForm from "./NewPlantForm";
-import PlantList from "./PlantList";
-import Search from "./Search";
+import React from 'react';
 
-function PlantPage() {
+const PlantPage = ({ id, plants }) => {
+  const plant = plants.find(p => p.id === parseInt(id));
+  if (!plant) return <div>Plant not found</div>;
+
   return (
-    <main>
-      <NewPlantForm />
-      <Search />
-      <PlantList />
-    </main>
+    <div className="plant-page">
+      <img src={plant.image} alt={plant.name} />
+      <h2>{plant.name}</h2>
+      <p>Price: ${plant.price}</p>
+      <p>{plant.soldOut ? 'This plant is sold out' : 'This plant is available'}</p>
+    </div>
   );
-}
+};
 
 export default PlantPage;
